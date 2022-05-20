@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SKPK Food</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="produk">
+
+        </div>
+        <script src="database.js"></script>
+        <script type="text/javascript">
+            
+            let produk = document.getElementById("produk");
+            let id = 1;
+            for (index in menu) {
+
+                let br = document.createElement("br");
+                let card = document.createElement("div");
+                card.className = "produk_card";
+                let container_gambar = document.createElement("div");
+                container_gambar.className = "container_foto";
+                let gambar = document.createElement("img");
+                gambar.className="foto";
+                let nama = document.createElement("h2");
+                let harga = document.createElement("h3");
+                let button = document.createElement("button");
+                button.innerText = "Tambah";
+                button.className = "button_tambah";
+                button.addEventListener("click", function () {
+                    alert(button.id);
+                },false);
+
+                button.id = "btn_"+id;
+                gambar.src = menu[index].foto;
+                nama.innerText = menu[index].nama;
+                harga.innerText = menu[index].harga;
+                
+                container_gambar.appendChild(gambar);
+                card.appendChild(container_gambar);
+                card.appendChild(br);
+                card.appendChild(nama);
+                card.appendChild(br);
+                card.appendChild(harga);
+                card.appendChild(br);
+                card.appendChild(button);
+                card.appendChild(br);
+
+                produk.appendChild(card);
+                id++;
+            }
+
+            
+            // menu.map((data)=>{
+            //     tampilan_menu += "<div class='produk_card'>"+
+            //                      "<img src='"+data.foto+"' class='foto'><br>"+
+            //                      "<h2>"+data.nama+"</h2><br>"+
+            //                      "<h3>"+data.harga+"</h3>"+
+            //                      "</div>";
+            // })
+        </script>
+    </body>
+</html>
